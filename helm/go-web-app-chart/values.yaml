@@ -2,7 +2,7 @@ replicaCount: 1  # Number of replicas for your application (default is 1)
 
 image:
   repository: reignliebert/go-web-app  # The Docker repository where the image is stored
-  tag: "14113717521"
+  tag: "14113943600"
   pullPolicy: IfNotPresent  # The pull policy for the image (IfNotPresent ensures the image is pulled only if it's not already available locally)
 
 ingress:
