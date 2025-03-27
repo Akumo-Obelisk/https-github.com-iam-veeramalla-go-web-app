@@ -1,0 +1,21 @@
+apiVersion: apps/v1  # Specifies the API version for the Deployment resource
+kind: Deployment  # Declares this resource as a Deployment (manages Pods)
+metadata:
+  name: go-web-app  # Name of the Deployment
+  labels:
+    app: go-web-app  # Assigns a label to the Deployment for identification
+spec:
+  replicas: 1  # Specifies that 3 Pods should be created and maintained
+  selector:
+    matchLabels:
+      app: go-web-app  # Selects Pods that have the label
+  template:  # Defines the Pod template (blueprint for the Pods)
+    metadata:
+      labels:
+        app: go-web-app  # Assigns the same label to Pods so they match the selector
+    spec:
+      containers:
+      - name: go-web-app  # Defines the container name within the Pod
+        image: reignliebert/go-web-app:{{ .Values.image.tag}}  # will look for images in values
+        ports:
+        - containerPort: 8080  # Exposes port 8080 inside the container (for web traffic)

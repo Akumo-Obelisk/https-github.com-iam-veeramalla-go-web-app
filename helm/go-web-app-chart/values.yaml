@@ -1,0 +1,17 @@
+replicaCount: 1  # Number of replicas for your application (default is 1)
+
+image:
+  repository: reignliebert/go-web-app  # The Docker repository where the image is stored
+  tag: "v1"  # The image tag (version) to use
+  pullPolicy: IfNotPresent  # The pull policy for the image (IfNotPresent ensures the image is pulled only if it's not already available locally)
+
+ingress:
+  enabled: false  # Whether to enable ingress or not (set to true to enable)
+  className: ""  # Class of ingress (if required, usually blank unless using specific ingress controllers)
+  annotations: {}  # Annotations for the ingress (optional, can be used for additional configurations)
+
+  hosts:
+    - host: chart-example.local  # The domain name for accessing the app
+      paths:
+        - path: /path  # Path for ingress routing
+          pathType: ImplementationSpecific  # Path matching type, defaults to ImplementationSpecific
